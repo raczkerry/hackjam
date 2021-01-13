@@ -1,5 +1,5 @@
 import MovieCard from './components/movieCard'
-import React, { useState } from 'react'
+import React, { useCallback, useState } from 'react'
 import { genres } from './mocks'
 import { ICategory, IMovie } from './types'
 
@@ -10,6 +10,15 @@ interface AppProps {
 
 export function App({ categories, movies }: AppProps) {
   const [filteredMovies, setFilteredMovies] = useState<IMovie[]>([])
+
+  const onGenreSelect = useCallback(
+    (genreName: string): void => {
+      const genre = genres.find(genre => genre.name === genreName)
+
+      setFilteredMovies(genre ? movies.filter(movie => movie.genre_ids.includes(genre.id)) : [])
+    },
+    [movies]
+  )
 
   return (
     <>
@@ -54,14 +63,7 @@ export function App({ categories, movies }: AppProps) {
           <div className='container mx-auto text-center'>
             <ul className='flex flex-row justify-center categories-list'>
               {categories.map(({ name }) => (
-                <li
-                  key={name}
-                  onClick={() => {
-                    const genre = genres.find(genre => genre.name === name)
-
-                    setFilteredMovies(genre ? movies.filter(movie => movie.genre_ids.includes(genre.id)) : [])
-                  }}
-                >
+                <li key={name} onClick={() => onGenreSelect(name)}>
                   <button className={'px-3 md:px-6 py-3 block'}>{name}</button>
                 </li>
               ))}
