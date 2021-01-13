@@ -1,5 +1,5 @@
-import { IMovie } from "../types";
-import { PICTURE_ORIGINAL_URL } from "../constants";
+import { IMovie } from '../types'
+import { PICTURE_ORIGINAL_URL } from '../constants'
 
 const mockMovies: IMovie[] = [
   {
@@ -7,17 +7,17 @@ const mockMovies: IMovie[] = [
     id: 329865,
     video: false,
     vote_average: 7,
-    title: "Arrival",
+    title: 'Arrival',
     popularity: 12.707972,
-    poster_path: "/6HE4xd8zloDqmjMZuhUCCw2UcY1.jpg",
-    original_language: "en",
-    original_title: "Arrival",
+    poster_path: '/6HE4xd8zloDqmjMZuhUCCw2UcY1.jpg',
+    original_language: 'en',
+    original_title: 'Arrival',
     genre_ids: [53, 18, 878, 9648],
-    backdrop_path: "/yIZ1xendyqKvY3FGeeUYUd5X9Mm.jpg",
+    backdrop_path: '/yIZ1xendyqKvY3FGeeUYUd5X9Mm.jpg',
     adult: false,
     overview:
-      "Taking place after alien crafts land around the world, an expert linguist is recruited by the military to determine whether they come in peace or are a threat.",
-    release_date: "2016-11-10",
+      'Taking place after alien crafts land around the world, an expert linguist is recruited by the military to determine whether they come in peace or are a threat.',
+    release_date: '2016-11-10'
   },
 
   {
@@ -25,120 +25,120 @@ const mockMovies: IMovie[] = [
     id: 246655,
     video: false,
     vote_average: 6.3,
-    title: "X-Men: Apocalypse",
+    title: 'X-Men: Apocalypse',
     popularity: 12.685011,
-    poster_path: "/1hRoyzDtpgMU7Dz4JF22RANzQO7.jpg",
-    original_language: "en",
-    original_title: "X-Men: Apocalypse",
+    poster_path: '/1hRoyzDtpgMU7Dz4JF22RANzQO7.jpg',
+    original_language: 'en',
+    original_title: 'X-Men: Apocalypse',
     genre_ids: [28, 12, 14, 878],
-    backdrop_path: "/oQWWth5AOtbWG9o8SCAviGcADed.jpg",
+    backdrop_path: '/oQWWth5AOtbWG9o8SCAviGcADed.jpg',
     adult: false,
     overview:
       "After the re-emergence of the world's first mutant, world-destroyer Apocalypse, the X-Men must unite to defeat his extinction level plan.",
-    release_date: "2016-05-18",
+    release_date: '2016-05-18'
   },
   {
     vote_count: 406,
     id: 340837,
     video: false,
     vote_average: 5.7,
-    title: "A Cure for Wellness",
+    title: 'A Cure for Wellness',
     popularity: 17.20916,
-    poster_path: "/d4fXuJS3zZcAZfz2HYDtnwqtnwn.jpg",
-    original_language: "en",
-    original_title: "A Cure for Wellness",
+    poster_path: '/d4fXuJS3zZcAZfz2HYDtnwqtnwn.jpg',
+    original_language: 'en',
+    original_title: 'A Cure for Wellness',
     genre_ids: [18, 14, 27, 9648, 878, 53],
-    backdrop_path: "/6oXUTHVAjPrNKvVFZhxNlWv7jua.jpg",
+    backdrop_path: '/6oXUTHVAjPrNKvVFZhxNlWv7jua.jpg',
     adult: false,
     overview:
-      "An ambitious young executive is sent to retrieve his company's CEO from an idyllic but mysterious \"wellness center\" at a remote location in the Swiss Alps but soon suspects that the spa's miraculous treatments are not what they seem.",
-    release_date: "2016-12-10",
+      'An ambitious young executive is sent to retrieve his company\'s CEO from an idyllic but mysterious "wellness center" at a remote location in the Swiss Alps but soon suspects that the spa\'s miraculous treatments are not what they seem.',
+    release_date: '2016-12-10'
   },
   {
     vote_count: 271,
     id: 339846,
     video: false,
     vote_average: 5.5,
-    title: "Baywatch",
+    title: 'Baywatch',
     popularity: 12.742543,
-    poster_path: "/6HE4xd8zloDqmjMZuhUCCw2UcY1.jpg",
-    original_language: "en",
-    original_title: "Baywatch",
+    poster_path: '/6HE4xd8zloDqmjMZuhUCCw2UcY1.jpg',
+    original_language: 'en',
+    original_title: 'Baywatch',
     genre_ids: [28, 35],
-    backdrop_path: "/tryI7qZHaLMVzMNpLyKHKDiZOLc.jpg",
+    backdrop_path: '/tryI7qZHaLMVzMNpLyKHKDiZOLc.jpg',
     adult: false,
     overview:
-      "Devoted lifeguard Mitch Buchannon butts heads with a brash new recruit. Together, they uncover a local criminal plot that threatens the future of the Bay.",
-    release_date: "2017-05-12",
+      'Devoted lifeguard Mitch Buchannon butts heads with a brash new recruit. Together, they uncover a local criminal plot that threatens the future of the Bay.',
+    release_date: '2017-05-12'
   },
   {
     vote_count: 10418,
     id: 155,
     video: false,
     vote_average: 8.2,
-    title: "The Dark Knight",
+    title: 'The Dark Knight',
     popularity: 12.693908,
-    poster_path: "/1hRoyzDtpgMU7Dz4JF22RANzQO7.jpg",
-    original_language: "en",
-    original_title: "The Dark Knight",
+    poster_path: '/1hRoyzDtpgMU7Dz4JF22RANzQO7.jpg',
+    original_language: 'en',
+    original_title: 'The Dark Knight',
     genre_ids: [18, 28, 80, 53],
-    backdrop_path: "/nnMC0BM6XbjIIrT4miYmMtPGcQV.jpg",
+    backdrop_path: '/nnMC0BM6XbjIIrT4miYmMtPGcQV.jpg',
     adult: false,
     overview:
-      "Batman raises the stakes in his war on crime. With the help of Lt. Jim Gordon and District Attorney Harvey Dent, Batman sets out to dismantle the remaining criminal organizations that plague the streets. The partnership proves to be effective, but they soon find themselves prey to a reign of chaos unleashed by a rising criminal mastermind known to the terrified citizens of Gotham as the Joker.",
-    release_date: "2008-07-16",
+      'Batman raises the stakes in his war on crime. With the help of Lt. Jim Gordon and District Attorney Harvey Dent, Batman sets out to dismantle the remaining criminal organizations that plague the streets. The partnership proves to be effective, but they soon find themselves prey to a reign of chaos unleashed by a rising criminal mastermind known to the terrified citizens of Gotham as the Joker.',
+    release_date: '2008-07-16'
   },
   {
     vote_count: 3398,
     id: 228150,
     video: false,
     vote_average: 7.4,
-    title: "Fury",
+    title: 'Fury',
     popularity: 12.561185,
-    poster_path: "/pfte7wdMobMF4CVHuOxyu6oqeeA.jpg",
-    original_language: "en",
-    original_title: "Fury",
+    poster_path: '/pfte7wdMobMF4CVHuOxyu6oqeeA.jpg',
+    original_language: 'en',
+    original_title: 'Fury',
     genre_ids: [10752, 18, 28],
-    backdrop_path: "/pKawqrtCBMmxarft7o1LbEynys7.jpg",
+    backdrop_path: '/pKawqrtCBMmxarft7o1LbEynys7.jpg',
     adult: false,
     overview:
       'Last months of World War II in April 1945. As the Allies make their final push in the European Theater, a battle-hardened U.S. Army sergeant in the 2nd Armored Division named Wardaddy commands a Sherman tank called "Fury" and its five-man crew on a deadly mission behind enemy lines. Outnumbered and outgunned, Wardaddy and his men face overwhelming odds in their heroic attempts to strike at the heart of Nazi Germany.',
-    release_date: "2014-10-15",
+    release_date: '2014-10-15'
   },
   {
     vote_count: 0,
     id: 284053,
     video: false,
     vote_average: 0,
-    title: "Thor: Ragnarok",
+    title: 'Thor: Ragnarok',
     popularity: 10.326226,
-    poster_path: "/wHJKSDX1ZZqL5pvewihMgSDTQyf.jpg",
-    original_language: "en",
-    original_title: "Thor: Ragnarok",
+    poster_path: '/wHJKSDX1ZZqL5pvewihMgSDTQyf.jpg',
+    original_language: 'en',
+    original_title: 'Thor: Ragnarok',
     genre_ids: [28, 12, 14, 878],
-    backdrop_path: "/kdYo8LJxPtYM81r9K7v8voAN60r.jpg",
+    backdrop_path: '/kdYo8LJxPtYM81r9K7v8voAN60r.jpg',
     adult: false,
     overview:
-      "Thor is imprisoned on the other side of the universe and finds himself in a race against time to get back to Asgard to stop Ragnarok, the destruction of his homeworld and the end of Asgardian civilization, at the hands of an all-powerful new threat, the ruthless Hela.",
-    release_date: "2017-10-25",
+      'Thor is imprisoned on the other side of the universe and finds himself in a race against time to get back to Asgard to stop Ragnarok, the destruction of his homeworld and the end of Asgardian civilization, at the hands of an all-powerful new threat, the ruthless Hela.',
+    release_date: '2017-10-25'
   },
   {
     vote_count: 5006,
     id: 210577,
     video: false,
     vote_average: 7.9,
-    title: "Gone Girl",
+    title: 'Gone Girl',
     popularity: 12.322319,
-    poster_path: "/pfte7wdMobMF4CVHuOxyu6oqeeA.jpg",
-    original_language: "en",
-    original_title: "Gone Girl",
+    poster_path: '/pfte7wdMobMF4CVHuOxyu6oqeeA.jpg',
+    original_language: 'en',
+    original_title: 'Gone Girl',
     genre_ids: [9648, 53, 18],
-    backdrop_path: "/pKawqrtCBMmxarft7o1LbEynys7.jpg",
+    backdrop_path: '/pKawqrtCBMmxarft7o1LbEynys7.jpg',
     adult: false,
     overview:
       "With his wife's disappearance having become the focus of an intense media circus, a man sees the spotlight turned on him when it's suspected that he may not be innocent.",
-    release_date: "2014-10-01",
-  },
+    release_date: '2014-10-01'
+  }
   // {
   //   vote_count: 3658,
   //   id: 285,
@@ -853,9 +853,9 @@ const mockMovies: IMovie[] = [
   //     "When Lou Bloom, desperate for work, muscles into the world of L.A. crime journalism, he blurs the line between observer and participant to become the star of his own story. Aiding him in his effort is Nina, a TV-news veteran.",
   //   release_date: "2014-10-23",
   // },
-];
+]
 
-export const movies = mockMovies.map((movie) => ({
+export const movies = mockMovies.map(movie => ({
   ...movie,
-  poster_path: PICTURE_ORIGINAL_URL + movie.poster_path,
-}));
+  poster_path: PICTURE_ORIGINAL_URL + movie.poster_path
+}))
