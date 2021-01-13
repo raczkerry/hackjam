@@ -1,12 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { ICategory, IMovie } from './types'
-
+import { genres } from './mocks'
 interface AppProps {
   categories: ICategory[]
   movies: IMovie[]
 }
 
 export function App({ categories, movies }: AppProps) {
+  const [filteredMovies, setFilteredMovies] = useState<IMovie[]>([])
+
   return (
     <>
       {/* Start: Header Component */}
@@ -50,7 +52,14 @@ export function App({ categories, movies }: AppProps) {
           <div className='container mx-auto text-center'>
             <ul className='flex flex-row justify-center categories-list'>
               {categories.map(({ name }) => (
-                <li key={name} onClick={() => {}}>
+                <li
+                  key={name}
+                  onClick={() => {
+                    const genre = genres.find(genre => genre.name === name)
+
+                    setFilteredMovies(genre ? movies.filter(movie => movie.genre_ids.includes(genre.id)) : [])
+                  }}
+                >
                   <button className={'px-3 md:px-6 py-3 block'}>{name}</button>
                 </li>
               ))}
@@ -65,16 +74,28 @@ export function App({ categories, movies }: AppProps) {
           <div className='container mx-auto'>
             <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-10'>
               {/* Start: Movie Component */}
-              {movies.map(movie => (
-                <div key={movie.id} className='single-movie relative'>
-                  <img src={movie.poster_path} alt={movie.title} />
-                  <div className='movie-content flex items-center justify-center text-center absolute w-full h-full inset-0 px-4'>
-                    <div className='content-inner'>
-                      <h3 className='mb-5'>{movie.title}</h3>
+              {filteredMovies.length
+                ? filteredMovies.map(movie => (
+                    <div key={movie.id} className='single-movie relative'>
+                      <img src={movie.poster_path} alt={movie.title} />
+                      <div className='movie-content flex items-center justify-center text-center absolute w-full h-full inset-0 px-4'>
+                        <div className='content-inner'>
+                          <h3 className='mb-5'>{movie.title}</h3>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                </div>
-              ))}
+                  ))
+                : movies.map(movie => (
+                    <div key={movie.id} className='single-movie relative'>
+                      <img src={movie.poster_path} alt={movie.title} />
+                      <div className='movie-content flex items-center justify-center text-center absolute w-full h-full inset-0 px-4'>
+                        <div className='content-inner'>
+                          <h3 className='mb-5'>{movie.title}</h3>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+
               {/* End: Movie Component */}
             </div>
           </div>
