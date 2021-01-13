@@ -1,6 +1,8 @@
+import MovieCard from './components/movieCard'
 import React, { useState } from 'react'
-import { ICategory, IMovie } from './types'
 import { genres } from './mocks'
+import { ICategory, IMovie } from './types'
+
 interface AppProps {
   categories: ICategory[]
   movies: IMovie[]
@@ -75,26 +77,8 @@ export function App({ categories, movies }: AppProps) {
             <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-10'>
               {/* Start: Movie Component */}
               {filteredMovies.length
-                ? filteredMovies.map(movie => (
-                    <div key={movie.id} className='single-movie relative'>
-                      <img src={movie.poster_path} alt={movie.title} />
-                      <div className='movie-content flex items-center justify-center text-center absolute w-full h-full inset-0 px-4'>
-                        <div className='content-inner'>
-                          <h3 className='mb-5'>{movie.title}</h3>
-                        </div>
-                      </div>
-                    </div>
-                  ))
-                : movies.map(movie => (
-                    <div key={movie.id} className='single-movie relative'>
-                      <img src={movie.poster_path} alt={movie.title} />
-                      <div className='movie-content flex items-center justify-center text-center absolute w-full h-full inset-0 px-4'>
-                        <div className='content-inner'>
-                          <h3 className='mb-5'>{movie.title}</h3>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
+                ? filteredMovies.map(movie => <MovieCard movie={movie} />)
+                : movies.map(movie => <MovieCard movie={movie} />)}
 
               {/* End: Movie Component */}
             </div>
