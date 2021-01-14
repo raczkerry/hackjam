@@ -9,13 +9,14 @@ interface AppProps {
 }
 
 export function App({ categories, movies }: AppProps) {
-  const [filteredMovies, setFilteredMovies] = useState<IMovie[]>([])
+  const [filteredMovies, setFilteredMovies] = useState<IMovie[]>(movies)
+  const [searchValue, setSearchValue] = useState('')
 
   const onGenreSelect = useCallback(
     (genreName: string): void => {
       const genre = genres.find(genre => genre.name === genreName)
 
-      setFilteredMovies(genre ? movies.filter(movie => movie.genre_ids.includes(genre.id)) : [])
+      setFilteredMovies(genre ? movies.filter(movie => movie.genre_ids.includes(genre.id)) : movies)
     },
     [movies]
   )
@@ -38,7 +39,8 @@ export function App({ categories, movies }: AppProps) {
                   name='Search'
                   placeholder='Search'
                   className='search'
-                  onChange={() => {}}
+                  onChange={event => setSearchValue(event.target.value)}
+                  value={searchValue}
                 />
                 <button type='submit' className='search-btn'>
                   <img src='./image/search.svg' alt='search' />
@@ -78,10 +80,11 @@ export function App({ categories, movies }: AppProps) {
           <div className='container mx-auto'>
             <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-10'>
               {/* Start: Movie Component */}
-              {filteredMovies.length
-                ? filteredMovies.map(movie => <MovieCard movie={movie} />)
-                : movies.map(movie => <MovieCard movie={movie} />)}
-
+              {searchValue
+                ? filteredMovies
+                    .filter(movie => movie.title.match(new RegExp(searchValue, 'gi')))
+                    .map(movie => <MovieCard movie={movie} />)
+                : filteredMovies.map(movie => <MovieCard movie={movie} />)}
               {/* End: Movie Component */}
             </div>
           </div>
