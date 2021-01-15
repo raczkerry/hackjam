@@ -1,17 +1,17 @@
 import MovieCard from './components/movieCard'
 import React, { useEffect } from 'react'
-import { categories } from './mocks'
-import { movies as moviesMock } from './mocks'
-import { setMovies, setSearchValue, setSelectedCategory } from './redux/actions/moviesActions'
+import { categories as categoriesMock, movies as moviesMock } from './mocks'
+import { setCategories, setMovies, setSearchValue, setSelectedCategory } from './redux/actions/moviesActions'
 import { useDispatch } from 'react-redux'
 import { useSelector } from './hooks'
 
 export function App() {
   const dispatch = useDispatch()
-  const { filteredMovies, searchValue } = useSelector(state => state.movies)
+  const { categories, filteredMovies, searchValue } = useSelector(state => state.movies)
 
   useEffect(() => {
     dispatch(setMovies(moviesMock))
+    dispatch(setCategories(categoriesMock))
   }, [dispatch])
 
   return (
