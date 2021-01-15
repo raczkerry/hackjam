@@ -6,6 +6,11 @@ import { MoviesActionTypes } from '../../types'
 
 const moviesReducer = (state = initialState.movies, action: MoviesAction): IMoviesReducer => {
   switch (action.type) {
+    case MoviesActionTypes.SET_CATEGORIES:
+      return {
+        ...state,
+        categories: action.payload
+      }
     case MoviesActionTypes.SET_MOVIES:
       return {
         ...state,

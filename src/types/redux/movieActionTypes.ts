@@ -1,11 +1,16 @@
-import { IMovie } from '..'
+import { ICategory, IMovie } from '..'
 
 export enum MoviesActionTypes {
+  SET_CATEGORIES = 'SET_CATEGORIES',
   SET_MOVIES = 'SET_MOVIES',
   SET_SEARCH_VALUE = 'SET_SEARCH_VALUE',
   SET_SELECTED_CATEGORY = 'SET_SELECTED_CATEGORY'
 }
 
+interface setCategoriesAction {
+  type: MoviesActionTypes.SET_CATEGORIES
+  payload: ICategory[]
+}
 interface SetMovieAction {
   type: MoviesActionTypes.SET_MOVIES
   payload: IMovie[]
@@ -21,4 +26,4 @@ interface SetSelectedCategoryAction {
   payload: number
 }
 
-export type MoviesAction = SetMovieAction | SetSearchValueAction | SetSelectedCategoryAction
+export type MoviesAction = setCategoriesAction | SetMovieAction | SetSearchValueAction | SetSelectedCategoryAction
