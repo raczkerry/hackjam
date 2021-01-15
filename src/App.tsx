@@ -1,25 +1,18 @@
 import MovieCard from './components/movieCard'
-import React, { useCallback, useState } from 'react'
-import { genres } from './mocks'
-import { ICategory, IMovie } from './types'
+import React, { useEffect } from 'react'
+import { categories } from './mocks'
+import { movies as moviesMock } from './mocks'
+import { setMovies, setSearchValue, setSelectedCategory } from './redux/actions/moviesActions'
+import { useDispatch } from 'react-redux'
+import { useSelector } from './hooks'
 
-interface AppProps {
-  categories: ICategory[]
-  movies: IMovie[]
-}
+export function App() {
+  const dispatch = useDispatch()
+  const { filteredMovies, searchValue } = useSelector(state => state.movies)
 
-export function App({ categories, movies }: AppProps) {
-  const [filteredMovies, setFilteredMovies] = useState<IMovie[]>(movies)
-  const [searchValue, setSearchValue] = useState('')
-
-  const onGenreSelect = useCallback(
-    (genreName: string): void => {
-      const genre = genres.find(genre => genre.name === genreName)
-
-      setFilteredMovies(genre ? movies.filter(movie => movie.genre_ids.includes(genre.id)) : movies)
-    },
-    [movies]
-  )
+  useEffect(() => {
+    dispatch(setMovies(moviesMock))
+  }, [dispatch])
 
   return (
     <>
@@ -39,7 +32,7 @@ export function App({ categories, movies }: AppProps) {
                   name='Search'
                   placeholder='Search'
                   className='search'
-                  onChange={event => setSearchValue(event.target.value)}
+                  onChange={event => dispatch(setSearchValue(event.target.value))}
                   value={searchValue}
                 />
                 <button type='submit' className='search-btn'>
@@ -65,7 +58,7 @@ export function App({ categories, movies }: AppProps) {
           <div className='container mx-auto text-center'>
             <ul className='flex flex-row justify-center categories-list'>
               {categories.map(({ name }) => (
-                <li key={name} onClick={() => onGenreSelect(name)}>
+                <li key={name} onClick={() => dispatch(setSelectedCategory(name))}>
                   <button className={'px-3 md:px-6 py-3 block'}>{name}</button>
                 </li>
               ))}
@@ -80,11 +73,9 @@ export function App({ categories, movies }: AppProps) {
           <div className='container mx-auto'>
             <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-10'>
               {/* Start: Movie Component */}
-              {searchValue
-                ? filteredMovies
-                    .filter(movie => movie.title.match(new RegExp(searchValue, 'gi')))
-                    .map(movie => <MovieCard movie={movie} />)
-                : filteredMovies.map(movie => <MovieCard movie={movie} />)}
+              {filteredMovies.map(movie => (
+                <MovieCard movie={movie} />
+              ))}
               {/* End: Movie Component */}
             </div>
           </div>
