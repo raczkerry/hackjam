@@ -2,6 +2,7 @@ import { IGlobalState } from '../types'
 
 const initialState: IGlobalState = {
   movies: {
+    categories: [],
     filteredMovies: [],
     movies: [],
     searchValue: '',
