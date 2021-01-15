@@ -5,6 +5,7 @@ export interface IGlobalState {
 }
 
 export interface IMoviesReducer {
+  filteredMovies: IMovie[]
   movies: IMovie[]
   searchValue: string
   selectedCategory: number
