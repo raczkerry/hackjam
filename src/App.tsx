@@ -7,11 +7,12 @@ import { useSelector } from './hooks'
 
 export function App() {
   const dispatch = useDispatch()
-  const { categories, filteredMovies, searchValue } = useSelector(state => state.movies)
+  const { categories, filteredMovies, movies, searchValue } = useSelector(state => state.movies)
 
   useEffect(() => {
-    dispatch(setMovies(moviesMock))
-    dispatch(setCategories(categoriesMock))
+    !movies.length && dispatch(setMovies(moviesMock))
+    !categories.length && dispatch(setCategories(categoriesMock))
+    // eslint-disable-next-line
   }, [dispatch])
 
   return (
@@ -74,7 +75,7 @@ export function App() {
             <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-10'>
               {/* Start: Movie Component */}
               {filteredMovies.map(movie => (
-                <MovieCard movie={movie} />
+                <MovieCard key={movie.id} movie={movie} />
               ))}
               {/* End: Movie Component */}
             </div>
