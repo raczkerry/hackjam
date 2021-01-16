@@ -1,11 +1,11 @@
 import React from 'react'
 import { IMovie } from '../../types'
 
-interface IProps {
+interface MovieCardProps {
   movie: IMovie
 }
 
-const MovieCard = ({ movie }: IProps) => {
+const MovieCard = ({ movie }: MovieCardProps) => {
   return (
     <div key={movie.id} className='single-movie relative'>
       <img src={movie.poster_path} alt={movie.title} />
