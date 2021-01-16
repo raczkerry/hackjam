@@ -6,8 +6,14 @@ import { IGlobalState } from '../src/types'
 import { Provider as ReduxProvider } from 'react-redux'
 import 'jest-enzyme'
 
-export const Provider = ({ children, state = initialState }: { children: JSX.Element; state: IGlobalState }) => {
-  const store = createStore(rootReducer, state)
-
-  return <ReduxProvider store={store}>{children}</ReduxProvider>
+export const Provider = ({
+  children,
+  state = initialState,
+  store
+}: {
+  children: JSX.Element
+  state?: IGlobalState
+  store?: any
+}) => {
+  return <ReduxProvider store={store ?? createStore(rootReducer, state)}>{children}</ReduxProvider>
 }
