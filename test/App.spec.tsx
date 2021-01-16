@@ -7,7 +7,7 @@ import { createStore } from 'redux'
 import { IMovie } from '../src/types'
 import { Provider } from './testingUtils'
 import { categories as categoriesMock, genres as genresMock, movies as moviesMock } from '../src/mocks'
-import { mount, shallow } from 'enzyme'
+import { mount } from 'enzyme'
 import 'jest-enzyme'
 
 describe('App tests', () => {
@@ -44,11 +44,9 @@ describe('App tests', () => {
         <App />
       </Provider>
     )
-    const movieCardComponent = shallow(<MovieCard movie={movies[0]} />)
 
     // Then
     expect(component).toContainReact(<MovieCard movie={movies[0]} />)
-    expect(movieCardComponent).toContainReact(<img src={movies[0].poster_path} alt={movies[0].title} />)
   })
 
   it('should render multiples movies title and poster', () => {
@@ -67,13 +65,7 @@ describe('App tests', () => {
     )
 
     // Then
-    movies.forEach(movie => {
-      expect(component).toContainReact(<MovieCard movie={movie} />)
-
-      const movieCardComponent = shallow(<MovieCard movie={movie} />)
-
-      expect(movieCardComponent).toContainReact(<img src={movie.poster_path} alt={movie.title} />)
-    })
+    movies.forEach(movie => expect(component).toContainReact(<MovieCard movie={movie} />))
   })
 
   describe('Categories test', () => {
