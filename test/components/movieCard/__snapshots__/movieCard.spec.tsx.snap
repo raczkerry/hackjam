@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MovieCard tests should not have changed 1`] = `
+<div
+  className="single-movie relative"
+  key="329865"
+>
+  <img
+    alt="Arrival"
+    src="https://image.tmdb.org/t/p/original/x2FJsf1ElAgr63Y3PNPtJrcmpoe.jpg"
+  />
+  <div
+    className="movie-content flex items-center justify-center text-center absolute w-full h-full inset-0 px-4"
+  >
+    <div
+      className="content-inner"
+    >
+      <h3
+        className="mb-5"
+      >
+        Arrival
+      </h3>
+    </div>
+  </div>
+</div>
+`;
